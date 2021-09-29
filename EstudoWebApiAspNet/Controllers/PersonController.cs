@@ -1,6 +1,8 @@
 ﻿using EstudoWebApiAspNet.Models;
+using EstudoWebApiAspNet.Models.Context;
 using EstudoWebApiAspNet.Services.Implementations;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -13,6 +15,13 @@ namespace EstudoWebApiAspNet.Controllers
     [Route("api/[controller]")]
     public class PersonController : ControllerBase
     {
+
+        private IConfiguration _configuration;
+
+        public PersonController(IConfiguration Configuration)
+        {
+            _configuration = Configuration;
+        }
 
         private readonly ILogger<PersonController> _logger;
         private IPersonService _personservice;

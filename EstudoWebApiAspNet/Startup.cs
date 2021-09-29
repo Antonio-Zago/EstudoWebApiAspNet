@@ -30,6 +30,7 @@ namespace EstudoWebApiAspNet
 
             //Injeção de dependencia
             services.AddScoped<IPersonService, PersonServiceImplementation>();
+            services.AddSingleton<IConfiguration>(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
