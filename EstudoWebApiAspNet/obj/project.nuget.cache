@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "PGOTXXTrUFMvfutYkz94CW9CRo6Cvu2XWm3c9LjNUWRxU5yx6Ru67/v98C684PMhMEs3L1BPWU6lvMjIUy0miQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\DEV01\\Desktop\\MeusProjetosGitHub\\EstudoWebApiAspNet\\EstudoWebApiAspNet\\EstudoWebApiAspNet.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\DEV01\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.18\\microsoft.netcore.app.host.win-x64.3.1.18.nupkg.sha512"
+  ],
+  "logs": []
+}
