@@ -1,11 +1,11 @@
 ﻿using EstudoWebApiAspNet.Models;
-using EstudoWebApiAspNet.Models.Context;
 using EstudoWebApiAspNet.Services.Implementations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,15 +16,9 @@ namespace EstudoWebApiAspNet.Controllers
     public class PersonController : ControllerBase
     {
 
-        private IConfiguration _configuration;
-
-        public PersonController(IConfiguration Configuration)
-        {
-            _configuration = Configuration;
-        }
-
         private readonly ILogger<PersonController> _logger;
         private IPersonService _personservice;
+
 
         public PersonController(ILogger<PersonController> logger, IPersonService personService)
         {
@@ -35,6 +29,7 @@ namespace EstudoWebApiAspNet.Controllers
         [HttpGet]
         public IActionResult Get()
         {
+            
             return Ok(_personservice.FindAll());
         }
 

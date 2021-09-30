@@ -1,8 +1,10 @@
+using EstudoWebApiAspNet.Models.Context;
 using EstudoWebApiAspNet.Services.Implementations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -28,9 +30,12 @@ namespace EstudoWebApiAspNet
         {
             services.AddControllers();
 
+            var con = Configuration["MySQLConnection:MySQLConnectionString"];
+
+            services.AddDbContext<MySqlContext>(options => options.UseMySql(con, ServerVersion.AutoDetect(con)));
+
             //Injeção de dependencia
             services.AddScoped<IPersonService, PersonServiceImplementation>();
-            services.AddSingleton<IConfiguration>(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
